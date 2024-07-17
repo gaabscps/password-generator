@@ -7,7 +7,7 @@ interface TestSectionProps {
   a?: string;
 }
 
-const SectionContainer = styled.div`
+const SectionContainer = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
