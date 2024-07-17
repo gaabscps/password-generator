@@ -1,5 +1,6 @@
 import { Header } from "./componentes/Header";
 import styled from "styled-components";
+import { TestSection } from "./componentes/TestSection";
 
 const AppContainer = styled.div`
   width: 100vw;
@@ -12,6 +13,7 @@ function App() {
   return (
     <AppContainer>
       <Header />
+      <TestSection />
     </AppContainer>
   );
 }
