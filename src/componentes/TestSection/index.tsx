@@ -1,7 +1,6 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import { slideInFromTop } from "../../utils/slideInFromTop";
 import { useState } from "react";
-import { FaSpinner, FaCopy, FaCheck } from "react-icons/fa";
 import { Input } from "../Input";
 
 interface TestSectionProps {
@@ -25,7 +24,7 @@ const Title = styled.h2`
 `;
 
 export const TestSection: React.FC<TestSectionProps> = () => {
-  const [password, setPassword] = useState("");
+  const [password] = useState("");
 
   return (
     <SectionContainer>
