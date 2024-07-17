@@ -5,11 +5,8 @@ interface HeaderListProps {
   options: Option[];
 }
 
-const HeaderListContainer = styled.div`
+const HeaderListContainer = styled.ul`
   height: 100%;
-`;
-
-const HeaderListGroup = styled.ul`
   display: flex;
   gap: 4rem;
   height: 100%;
@@ -34,18 +31,16 @@ const HeaderListItem = styled.li`
 export const HeaderList: React.FC<HeaderListProps> = ({ options }) => {
   return (
     <HeaderListContainer>
-      <HeaderListGroup>
-        {options.map((option: Option) => (
-          <HeaderListItem
-            onClick={() => {}}
-            id={`item-list-${option.title}`}
-            key={`item-list-${option.title}`}
-            className="header-list-item"
-          >
-            {option.title}
-          </HeaderListItem>
-        ))}
-      </HeaderListGroup>
+      {options.map((option: Option) => (
+        <HeaderListItem
+          onClick={() => {}}
+          id={`item-list-${option.title}`}
+          key={`item-list-${option.title}`}
+          className="header-list-item"
+        >
+          {option.title}
+        </HeaderListItem>
+      ))}
     </HeaderListContainer>
   );
 };

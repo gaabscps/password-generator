@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { Option } from "./type";
 import styled from "styled-components";
+import { slideInFromTop } from "../../utils/slideInFromTop";
 
 interface DropdownProps {
   isOpen: boolean;
@@ -22,6 +23,7 @@ const DropdownContainer = styled.div`
   position: absolute;
   width: 180px;
   height: fit-content;
+  animation: ${slideInFromTop(-20, 0)} 0.3s ease-in-out;
 `;
 
 const DropdownListContainer = styled.div`
