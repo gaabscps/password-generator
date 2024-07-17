@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import "./styles.css";
 import { Option } from "./type";
+import styled from "styled-components";
 
 interface DropdownProps {
   isOpen: boolean;
@@ -8,6 +8,49 @@ interface DropdownProps {
   icon: JSX.Element | string;
   setIsOpen: (value: boolean) => void;
 }
+
+const UserDropdownController = styled.div`
+  position: relative;
+`;
+
+const DropdownContainer = styled.div`
+  background-color: #f0f0f0;
+  border: solid 1px #4752668e;
+  border-radius: 8px;
+  top: 40px;
+  right: 0px;
+  position: absolute;
+  width: 180px;
+  height: fit-content;
+`;
+
+const DropdownListContainer = styled.div`
+  height: 100%;
+`;
+
+const DropdownListItem = styled.li`
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 16px;
+  &:hover {
+    background-color: #e4e4e4;
+  }
+  &:active {
+    background-color: #d8d8d8;
+  }
+`;
+
+const DropdownIconItem = styled.li`
+  color: #282c34;
+  cursor: pointer;
+  height: 100%;
+  &:hover {
+    color: #2f5aa8;
+  }
+  &:active {
+    color: #3c72d6;
+  }
+`;
 
 export const Dropdown: React.FC<DropdownProps> = ({
   dropdownOptions,
@@ -34,33 +77,29 @@ export const Dropdown: React.FC<DropdownProps> = ({
   }, [setIsOpen]);
 
   return (
-    <div className="user-dropdown-controller">
+    <UserDropdownController>
       {isOpen && (
-        <div className="dropdown-container">
-          <ul className="dropdown-list-group">
+        <DropdownContainer>
+          <ul>
             {dropdownOptions.map((option: Option) => (
-              <li
+              <DropdownListItem
                 onClick={() => {
                   console.log(option.link);
                 }}
                 id={`item-list-${option.title}`}
                 key={`item-list-${option.title}`}
-                className="dropdown-list-item"
               >
                 {option.title}
-              </li>
+              </DropdownListItem>
             ))}
           </ul>
-        </div>
+        </DropdownContainer>
       )}
-      <div
-        onClick={() => setIsOpen(!isOpen)}
-        className="dropdown-list-container header-user-group-container"
-      >
-        <ul className="dropdown-list-group">
-          <li className="dropdown-icon-item">{icon}</li>
+      <DropdownListContainer onClick={() => setIsOpen(!isOpen)}>
+        <ul>
+          <DropdownIconItem>{icon}</DropdownIconItem>
         </ul>
-      </div>
-    </div>
+      </DropdownListContainer>
+    </UserDropdownController>
   );
 };
