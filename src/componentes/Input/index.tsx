@@ -10,7 +10,7 @@ const InputContainer = styled.div`
   width: 50%;
   border-radius: 8px;
   background-color: #f4f4f4;
-  animation: ${slideInFromTop(30, 0)} 0.5s ease-in-out;
+  animation: ${slideInFromTop(-30, 0)} 0.5s ease-in-out;
 `;
 
 const InputText = styled.input`
@@ -103,7 +103,7 @@ export const Input: React.FC<InputProps> = ({ value, placeholder }) => {
         disabled
         placeholder={placeholder}
         value={value}
-        onChange={() => {}}
+        onChange={() => { }}
       />
       <ButtonCopy onClick={() => handleCopyValue()}>
         {isCopied ? (
