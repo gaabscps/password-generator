@@ -5,15 +5,25 @@ import { Feature } from "./type";
 import { slideInFromTop } from "../../utils/slideInFromTop";
 
 const SectionFeatureContainer = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-top: 32px;
   padding: 32px;
   animation: ${slideInFromTop(-10, 0)} 0.5s ease-in-out;
+  @media (max-width: 830px) {
+    margin-top: 0px;   
+  }
 `;
 
-const Title = styled.h1`
+const Title = styled.h3`
   margin-bottom: 48px;
   color: #f4f4f4;
   text-align: center;
+  font-size: 1.8rem;
+  @media (max-width: 830px) {
+    font-size: 1.5rem;
+  }
 `;
 
 const CardContainer = styled.div`
@@ -21,8 +31,8 @@ const CardContainer = styled.div`
   gap: 32px;
   flex-wrap: wrap;
   justify-content: center;
-  @media (max-width: 835px) {
-    justify-content: flex-start;
+  @media (max-width: 830px) {
+  max-width: 100%;
   }
 `;
 

@@ -11,6 +11,9 @@ const InputContainer = styled.div`
   border-radius: 8px;
   background-color: #f4f4f4;
   animation: ${slideInFromTop(-30, 0)} 0.5s ease-in-out;
+  @media (max-width: 830px) {
+    width: 100%;
+  }
 `;
 
 const InputText = styled.input`
@@ -27,7 +30,7 @@ const InputText = styled.input`
 `;
 
 const ButtonGenerate = styled.button`
-  background-color: #2f5aa8;
+  background-color: #27ae60;
   color: #fff;
   border: none;
   border-radius: 0 6px 6px 0;
@@ -37,10 +40,10 @@ const ButtonGenerate = styled.button`
   height: 100%;
   align-self: end;
   &:hover {
-    background-color: #2a5197;
+    background-color: #229954;
   }
   &:active {
-    background-color: #436ab0;
+    background-color: #2ecc71;
   }
 `;
 
@@ -50,12 +53,13 @@ const ButtonCopy = styled.button`
   cursor: pointer;
   transition: background-color 0.3s;
   height: 100%;
+  color:#727272;
   align-self: center;
   padding: 0.5rem;
   border-radius: 6px;
   border: solid 1px transparent;
   &:hover {
-    color: #2a5197;
+    color: #21618c;
   }
   &:active {
     background-color: #e9e9e9;
@@ -73,7 +77,6 @@ const spin = keyframes`
 
 const SpinningFaSpinner = styled(FaSpinner)`
   animation: ${spin} 1s linear infinite;
-  color: #000;
 `;
 
 interface InputProps {
@@ -107,9 +110,9 @@ export const Input: React.FC<InputProps> = ({ value, placeholder }) => {
       />
       <ButtonCopy onClick={() => handleCopyValue()}>
         {isCopied ? (
-          <SpinningFaSpinner />
+          <SpinningFaSpinner color='#3498db' />
         ) : copySuccess ? (
-          <FaCheck />
+          <FaCheck color="#3498db" />
         ) : (
           <FaCopy />
         )}

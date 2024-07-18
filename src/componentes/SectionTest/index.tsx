@@ -14,6 +14,9 @@ const SectionContainer = styled.section`
   padding: 2rem;
   max-width: 1024px;
   margin: 0 auto;
+  @media (max-width: 830px) {
+    padding: 1rem 2rem;
+  }
 `;
 
 const Title = styled.h2`
@@ -21,6 +24,10 @@ const Title = styled.h2`
   font-size: 2.3rem;
   letter-spacing: 2px;
   animation: ${slideInFromTop(-30, 0)} 0.5s ease-in-out;
+  text-align: center;
+  @media (max-width: 830px) {
+    font-size: 2rem;
+  } 
 `;
 
 export const TestSection: React.FC<TestSectionProps> = () => {
